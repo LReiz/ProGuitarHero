@@ -21,3 +21,5 @@ MIN_NOTE_FREQUENCY = 82.406876		# E2 (Hz)
 # MUSICS MAP
 
 BASE_NOTES_ARRAY = ['C','C#','D','D#','E','F','F#','G','G#','A','A#','B']
+
+E2 = 
