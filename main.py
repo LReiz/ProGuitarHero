@@ -1,9 +1,10 @@
 import audio_recorder
+from audio_processor import process_audio_forever
 
 
 def main():
 	microphone = audio_recorder.AudioRecorder()
-	pass
+	process_audio_forever(microphone)
 
 
 if __name__ == '__main__':
