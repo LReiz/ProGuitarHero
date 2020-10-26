@@ -1,7 +1,9 @@
 import numpy as np
 from scipy.signal import butter, lfilter, fftconvolve
 
-
+"""
+	Module taken from the following project: https://github.com/codyd51/offkeyboard
+"""
 
 def find(condition):
     # https://stackoverflow.com/questions/57100894/matplotlib-versions-3-does-not-inlclude-a-find
