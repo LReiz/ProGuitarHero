@@ -2,7 +2,8 @@ from config import (
 	MIN_NOTE_FREQUENCY,
 	MIN_NOTE_ID,
 	BASE_NOTES_ARRAY,
-	MIN_VOLUME
+	MIN_VOLUME,
+	PYAUDIO_FORMATS
 )
 
 from math import (
@@ -25,3 +26,17 @@ def volume_too_low(sig):
 		return True
 
 	return False
+
+
+# For plugged guitar only (not mic)
+
+def convert_to_32bit_array(byteArray, pyaudio_format):
+	array32Bits = b''
+	bytesPerNumber = PYAUDIO_FORMATS[pyaudio_format]
+
+	for index in range(0, len(byteArray), bytesPerNumber):
+		intNumber = int.from_bytes(byteArray[index:index + bytesPerNumber], byteorder='big', signed=False)
+		num32Bits = intNumber.to_bytes(4, byteorder='big')
+		array32Bits += num32Bits
+
+	return array32Bits

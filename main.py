@@ -3,7 +3,7 @@ from audio_processor import process_audio_forever
 
 
 def main():
-	microphone = audio_recorder.AudioRecorder()
+	microphone = audio_recorder.AudioRecorder(True)
 	process_audio_forever(microphone)
 
 
