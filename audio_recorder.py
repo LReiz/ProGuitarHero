@@ -5,33 +5,41 @@ from config import (
 	INPUT_SAMPLE_PER_FRAME_MIC,
 	INPUT_FORMAT_MIC,
 	INPUT_DEVICE_INDEX_MIC,
+	MIN_VOLUME_MIC,
 
 	INPUT_SAMPLE_RATE_GUITAR,
 	INPUT_CHANNELS_GUITAR,
 	INPUT_SAMPLE_PER_FRAME_GUITAR,
 	INPUT_FORMAT_GUITAR,
-	INPUT_DEVICE_INDEX_GUITAR
+	INPUT_DEVICE_INDEX_GUITAR,
+	MIN_VOLUME_GUITAR,
+
+	MICROPHONE,
+	GUITAR
 )
 
+import time
 import numpy as np
 from audio_processor import (
 	freq_from_autocorr
 )
 
 class AudioRecorder():
-	def __init__(self, microphone=True):
-		if microphone:
+	def __init__(self, input_device):
+		if input_device == MICROPHONE:
 			self.frameProvider = self.getFrameProviderFromMicrophone()
 			self.input_sample_rate = INPUT_SAMPLE_RATE_MIC
 			self.input_channels = INPUT_CHANNELS_MIC
 			self.input_sample_per_frame = INPUT_SAMPLE_PER_FRAME_MIC
 			self.input_format = INPUT_FORMAT_MIC
-		else:
+			self.min_volume = MIN_VOLUME_MIC
+		elif input_device == GUITAR:
 			self.frameProvider = self.getFrameProviderFromGuitar()
 			self.input_sample_rate = INPUT_SAMPLE_RATE_GUITAR
 			self.input_channels = INPUT_CHANNELS_GUITAR
 			self.input_sample_per_frame = INPUT_SAMPLE_PER_FRAME_GUITAR
 			self.input_format = INPUT_FORMAT_GUITAR
+			self.min_volume = MIN_VOLUME_GUITAR
 
 
 	def getFrameProviderFromMicrophone(self):

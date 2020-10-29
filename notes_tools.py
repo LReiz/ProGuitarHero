@@ -2,7 +2,6 @@ from config import (
 	MIN_NOTE_FREQUENCY,
 	MIN_NOTE_ID,
 	BASE_NOTES_ARRAY,
-	MIN_VOLUME,
 	PYAUDIO_FORMATS
 )
 
@@ -21,8 +20,8 @@ def find_note_string(id):
 	return (str(baseNote) + str(noteFamily))
 
 
-def volume_too_low(sig):
-	if max(sig) < abs(MIN_VOLUME):
+def volume_too_low(sig, min_volume):
+	if abs(max(sig)) < min_volume or abs(min(sig)) < min_volume:
 		return True
 
 	return False
