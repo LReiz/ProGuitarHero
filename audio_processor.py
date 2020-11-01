@@ -17,11 +17,9 @@ def process_audio_forever(audioRecorder):
 
 		if not volume_too_low(amplitudeArray, audioRecorder.min_volume):
 			frameFrequency = freq_from_autocorr(amplitudeArray, audioRecorder.input_sample_rate)
-			# print(max(amplitudeArray))
 			
 			if(frameFrequency):
 				noteString = find_note_string(find_note_id(frameFrequency)) 
-				print(noteString)
-				# print(noteString)
+				print("Note:", noteString)
 
 				play_music(noteString)
