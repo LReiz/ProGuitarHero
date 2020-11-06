@@ -4,7 +4,7 @@ import pyaudio
 
 # DEVICES CONFIGURATION --------------------------------------------------------
 
-INPUT_DEVICE = 2             # 1 for Microphone / 2 for Guitar
+INPUT_DEVICE = 1             # 1 for Microphone / 2 for Guitar
 MICROPHONE = 1
 GUITAR = 2
 
