@@ -2,7 +2,7 @@
 Tutorial de como ser bom na guitarra sem saber tocar
 
 ## Vídeo Demonstração
-[Link do YouTube](https://www.youtube.com/channel/UChnu_RgvaCtCXK00HcXlSrQ?view_as=subscriber)
+[Link do YouTube](https://youtu.be/XZNHjMBJTDM)
 
 ## Músicas para teste
 [Link do Drive](https://drive.google.com/drive/folders/10wAa9JImnOt0blmLG2lC_xc-Toe-ApRK?usp=sharing)
