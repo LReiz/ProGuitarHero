@@ -25,7 +25,7 @@ from audio_processor import (
 )
 
 class AudioRecorder():
-	def __init__(self, input_device):
+	def __init__(self, input_device = 0):
 		if input_device == MICROPHONE:
 			self.frameProvider = self.getFrameProviderFromMicrophone()
 			self.input_sample_rate = INPUT_SAMPLE_RATE_MIC
@@ -71,3 +71,9 @@ class AudioRecorder():
 	def getFrame(self):
 		frame = self.frameProvider.read(self.input_sample_per_frame, exception_on_overflow=False)
 		return frame
+	
+	def showDevices(self):
+		pyaudioInstance = pyaudio.PyAudio()
+		print("Input devices count: " + str(pyaudioInstance.get_device_count()))
+		for i in range(pyaudioInstance.get_device_count()):
+			print(pyaudioInstance.get_device_info_by_index(i))
